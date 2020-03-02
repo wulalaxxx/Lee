@@ -1,0 +1,24 @@
+public class Solution {
+    public string LongestCommonPrefix(string[] strs)
+     {
+            //如果字符串数组为空，返回""
+            if (strs.Length == 0)
+            {
+                return "";
+            }
+            string result = "";
+            for (int i = 0; i < strs[0].Length; i++)
+            {
+                for (int j = 1; j < strs.Length; j++)
+                {
+                    //如果第一个数组的长度等于了之后的数组长度或出现不相等的字符串，就结束循环，返回result
+                    if (i >= strs[j].Length || !strs[0][i].Equals(strs[j][i]))
+                    {
+                        return result;
+                    }
+                }
+                result = strs[0].Substring(0, i + 1);   //方法2 　　Substring(Int32, Int32)　　　从此实例检索子字符串。 子字符串从指定的字符位置开始且具有指定的长度 参数一：起始位置(从0开始)参数二：指定长度
+            }
+            return result;
+    }
+}
